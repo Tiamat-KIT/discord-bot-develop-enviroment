@@ -1,0 +1,27 @@
+{
+    "name": "role-admin-bot",
+    "build": { 
+        "dockerfile": "Dockerfile",
+        "context": "."
+    },
+    "workspaceMount": "source=${localWorkspaceFolder}/workspace,target=/workspace,type=bind",
+    "workspaceFolder": "/workspace",
+    "remoteUser": "utakata",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "rust-lang.rust-analyzer",
+                "bungcip.better-toml",
+                "serayuzgur.crates",
+                "vadimcn.vscode-lldb"
+            ],
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "rust-analyzer.checkOnSave.command": "clippy",
+                "rust-analyzer.checkOnSave.allTargets": true,
+                "rust-analyzer.cargo.loadOutDirsFromCheck": true,
+                "rust-analyzer.procMacro.enable": true
+            }
+        }
+    }
+}   
